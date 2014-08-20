@@ -4,7 +4,6 @@ Class BaseObject {
 	private $data = array();
 	private $dataOld = array();
 	private $loaded = false;
-	private $dataUpdated = array();
 	private $dataOldString = '';
 	
 	protected $_table = '';
@@ -35,7 +34,7 @@ Class BaseObject {
 	protected function loadFromRow($row = null) {
 		if(is_null($row))
 			die('ERROR 20140710.03 - No data for loading function.');
-		//var_dump($row);
+
 		foreach($row as $field => $val) {
 			$this->data[$field] = $val;
 		}

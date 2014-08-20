@@ -13,7 +13,6 @@ include './admin/connection.php';
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 		<script src="javascript/jquery-2.1.1.min.js"></script>
-		<script src="javascript/jquery.mobile-1.4.3.min.js"></script>
 		<script src="javascript/jquery.json.min.js"></script>
 		<script src="javascript/ckeditor/ckeditor.js"></script>
 		<script src="javascript/aeterna.js"></script>
@@ -25,9 +24,9 @@ include './admin/connection.php';
 		<header class="mainHeader">
 			<a href="index.php"><img src="images/test_ban.png"></img></a>
 		</header>
-		<nav class="mainMenu"><?php include('menu.php'); ?></nav>
 
 		<section id='main' class="mainSection">
+			<nav class="mainMenu"><?php include('menu.php'); ?></nav>
 			<article id="mainContent" class="mainArticle">
 				<?php if(isset($_GET['page'])) include($_GET['page'].'.php');?>
 				&nbsp;
@@ -37,7 +36,7 @@ include './admin/connection.php';
 			</aside>
 			
 		</section>
-		<footer class="mainFooter">footer</footer>
+		<footer class="mainFooter"><?php include('menu_footer.php');?></footer>
 	</body>
 </html>
 <?php

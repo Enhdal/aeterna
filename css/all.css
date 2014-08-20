@@ -31,7 +31,7 @@ article, aside {
 .mainMenu {
 	position:relative;
 	float:left;
-	margin: 0 0 0 10%;
+	/*margin: 0 0 0 10%;*/
 	padding-bottom : 20px;
 }
 
@@ -68,69 +68,84 @@ a {
     text-decoration: none;
 }
 
-nav ul{
-	/*margin-top: -50px;*/
-	padding: 0px;
-	position: relative;
-	z-index: 99;
-}
-
-nav ul li{
-	width: 12.71em;
-	display:inline-block;
-	text-align:center;
-}
-
-li.menu:hover ul{
-	display:block;
-}
-
-/*
-#menu {   
-    margin: auto 0px;
-    font-size: 0.8125em;
-	display:table;
-	background: linear-gradient(ghostwhite, ivory);
-}
-
-#menu > li {
-	display:table-cell;
-}
-
-.menu {
+.mainMenu ul{
+	/*position: relative;*/
+	display: table; 
+	margin: 0 auto;
 	padding: 0;
-    width: auto;
-    height: auto;
-    -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,.73), 0px 0px 18px 0px rgba(0,0,0,.13);
-    -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,.73), 0px 0px 18px 0px rgba(0,0,0,.13);
-    box-shadow: 0px 1px 3px 0px rgba(0,0,0,.73), 0px 0px 18px 0px rgba(0,0,0,.13);
+	/*z-index: 10;*/
+	background: dodgerblue;
+	background: -webkit-linear-gradient(deepskyblue, dodgerblue); 
+	background: -moz-linear-gradient(deepskyblue, dodgerblue); 
+	background: -ms-linear-gradient(deepskyblue, dodgerblue); 
+	background: -o-linear-gradient(deepskyblue, dodgerblue); 
+	background: linear-gradient(deepskyblue, dodgerblue);
+	border-radius: 3px; 
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .3),
+				0 3px 5px rgba(0, 0, 0, .2),
+				0 5px 10px rgba(0, 0, 0, .2),
+				0 20px 20px rgba(0, 0, 0, .15);
 }
 
-
-.menu > li > span {
-    font-size: 0.857em; 
-    position: absolute;
-    right: 1em;
-    top: 50%; 
-    background: #48515c;
-    line-height: 1em;
-    height: 1em;
-    padding: .4em .6em;
-    margin: -.8em 0 0 0; 
-    color: #fff;
-    text-indent: 0;
-    text-align: center;
-    -webkit-border-radius: .769em;
-    -moz-border-radius: .769em;
-    border-radius: .769em;
-    -webkit-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, .26), 0px 1px 0px 0px rgba(255, 255, 255, .15);
-    -moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, .26), 0px 1px 0px 0px rgba(255, 255, 255, .15);
-    box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, .26), 0px 1px 0px 0px rgba(255, 255, 255, .15);
-    text-shadow: 0px 1px 0px rgba(0,0,0,.5);
-    font-weight: 500;
+.mainMenu ul li{
+	width: 12.71em;
+	display: table-cell;
+	text-align: center;
+	color: rgba(0, 0, 0, .7);
+	text-decoration: none;
+	padding: 0px 0px 0px 0px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .4);
+	box-shadow: 0 1px 0 rgba(255, 255, 255, .7) inset,
+				0 -1px 0 hsl(210, 100%, 32%) inset,
+				0 -2px 0 hsl(210, 100%, 38%) inset,
+				0 -3px 0 hsl(210, 100%, 44%) inset,
+				0 -4px 0 hsl(210, 100%, 50%) inset,
+				0 -5px 0 hsl(210, 100%, 60%) inset;
+	transition: padding .3s, background .3s;
+	transition: all .3s .1s;
 }
 
-.menu > li > ul li:hover a span
-    color: #32373D;
+.mainMenu ul li:first-child {
+	border-radius: 3px 0 0 3px; 
 }
-*/
+
+.mainMenu ul li:last-child {
+	border-radius: 0 3px 3px 0;
+}
+
+.mainMenu ul li:hover,
+.mainMenu ul li:focus{ 
+	background: rgba(255,255,255,.2);
+	box-shadow: 0 1px 0 rgba(255, 255, 255, .7) inset, 
+				0 -1px 0 hsl(210, 100%, 42%) inset, 
+				0 -2px 0 hsl(210, 100%, 48%) inset, 
+				0 -3px 0 hsl(210, 100%, 54%) inset, 
+				0 -4px 0 hsl(210, 100%, 60%) inset, 
+				0 -5px 0 hsl(210, 100%, 70%) inset;
+	padding: 0px 10px 0px 10px;
+	transition: all .3s 0s;
+}	
+
+.mainMenu ul li span::before{
+	content: ''; 
+	position: absolute; 
+	left: 50%; 
+	bottom: 9px; 
+	margin-left: -2px; 
+	width: 4px; 
+	height: 4px; 
+	border-radius: 50%; 
+	background: rgba(0, 0, 0, .5); 
+}
+
+.mainMenu ul li span:hover::before,
+.mainMenu ul li span:focus::before{ 
+	background: white; 
+	box-shadow: 0 0 2px white, 
+				0 -1px 0 rgba(0, 0, 0, .4);
+}
+
+#menu_footer {
+	
+}
+

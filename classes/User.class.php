@@ -1,5 +1,4 @@
 ﻿<?php
-//spl_autoload_call('BaseObject');
 class User extends BaseObject{
 	public function __construct($id, $error = false, $loadfromrow = null){
 		parent::__construct('user', $id);
