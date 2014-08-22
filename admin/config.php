@@ -16,7 +16,7 @@
 	function dbConnect(){
 		$db = '';
 		try {
-			$db = new PDO('mysql:host=localhost;dbname=aeterna', 'root', 'B1r8o9o8d', array(PDO::ATTR_PERSISTENT => true));
+			$db = new PDO('mysql:host=localhost;dbname=aeterna', 'root', '', array(PDO::ATTR_PERSISTENT => true));
 			$GLOBALS['db'] = $db;
 		} catch (Exception $e) {
 			die('Error : ' . $e->getMessage());
@@ -37,6 +37,7 @@
 	}*/
 	
 	$cfg = array();
+	$cache = array();
 	$error_code = array();
 	
 	
@@ -117,4 +118,5 @@
 	);
 	
 	$GLOBALS['cfg'] = $cfg;
+	$GLOBALS['cache'] = $cache;
 ?>
