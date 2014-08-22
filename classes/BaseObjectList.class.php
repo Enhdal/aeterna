@@ -58,7 +58,7 @@ Class BaseObjectList {
 			$query = "SELECT $q FROM $t $as $innerjoin $where $orderby $limit";
 			$this->query = $query;
 			
-			dbConnect();
+			Tool::dbConnect();
 			$answer = $db->query($query);
 			$this->_res = $answer;
 		}
@@ -86,7 +86,7 @@ Class BaseObjectList {
 	 */
 	public function getNext() {
 		if($this->firstcall) {
-			dbConnect();
+			Tool::dbConnect();
 			if(is_null($this->_res))
 				die('ERROR 20140717.01 - _res not initialized');
 		
@@ -133,7 +133,7 @@ Class BaseObjectList {
 	
 	public function addAll(){
 		global $db;
-		dbConnect();
+		Tool::dbConnect();
 		$this->seek(0);
 		try{
 			$db->setAttribute(PDO::ATTR_AUTOCOMMIT, FALSE);
@@ -151,7 +151,7 @@ Class BaseObjectList {
 	
 	public function updateAll(){
 		global $db;
-		dbConnect();
+		Tool::dbConnect();
 		if($this->firstcall){
 			while($this->getNext());
 		}
@@ -169,7 +169,7 @@ Class BaseObjectList {
 	
 	public function deleteAll(){
 		global $db;
-		dbConnect();
+		Tool::dbConnect();
 		if($this->firstcall){
 			while($this->getNext());
 		}

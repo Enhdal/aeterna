@@ -1,28 +1,11 @@
 ﻿<?php
 	// Autoload function.
-	/*spl_autoload_register(function ($class) {
-		$path = 'http://localhost/aeterna/inclure/';
-		require_once $path.'class.'.ucfirst($class).'.php';
-	});*/
 	define('CLASS_DIR', 'classes/');
     set_include_path(get_include_path().PATH_SEPARATOR.CLASS_DIR);
 	
 	spl_autoload_extensions('.class.php');
 	spl_autoload_register();
-	
-	/**
-	* Function to connect to the Database.
-	*/
-	function dbConnect(){
-		$db = '';
-		try {
-			$db = new PDO('mysql:host=localhost;dbname=aeterna', 'root', '', array(PDO::ATTR_PERSISTENT => true));
-			$GLOBALS['db'] = $db;
-		} catch (Exception $e) {
-			die('Error : ' . $e->getMessage());
-		}
-	}
-	
+		
 	/**
 	* Create a random string.
 	* @param	int	$length	The length of the random string.

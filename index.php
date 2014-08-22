@@ -2,7 +2,7 @@
 <?php 
 session_start();
 include './admin/config.php';
-include './admin/connection.php';
+//include './admin/connection.php';
 ?>
 <html lang="fr">
 	<head>

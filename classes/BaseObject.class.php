@@ -23,7 +23,7 @@ Class BaseObject {
 			die('ERROR 20140710.02 bad id');
 		}
 		$this->_id = (int) $i;
-		dbConnect();
+		Tool::dbConnect();
     }
 	
 	public function isLoaded() {
@@ -88,7 +88,7 @@ Class BaseObject {
 			
 			$answer->closeCursor();
 		} catch(Exception $ex) {
-			dbConnect();
+			Tool::dbConnect();
 			$this->loadFromDb($error);
 		}
 	}
@@ -96,7 +96,7 @@ Class BaseObject {
 	// Update object to database.
 	public function update() {
 		global $db;
-		//dbConnect();
+		//Tool::dbConnect();
 		$_table = $this->_table;
 		$_id = $this->_id;
 		
@@ -121,7 +121,7 @@ Class BaseObject {
 				return 1;
 			}catch(Exception $ex) {
 				// If connexion to database doesn't work, reconnects to database.
-				//dbConnect();
+				//Tool::dbConnect();
 				// Starts again the updating function.
 				//$this->update();
 			}
@@ -135,7 +135,7 @@ Class BaseObject {
 	*/
 	public function add(){
 		global $db;
-		//dbConnect();
+		//Tool::dbConnect();
 		$_table = $this->_table;
 		$_id = $this->_id;
 		$q = $q2 = '';
@@ -155,7 +155,7 @@ Class BaseObject {
 			return 1;
 		} catch(Exception $ex) {
 			// If connexion to database doesn't work, reconnects to database.
-			//dbConnect();
+			//Tool::dbConnect();
 			// Starts again the adding function.
 			//$this->add();
 			return 0;
@@ -165,7 +165,7 @@ Class BaseObject {
 	// Delete object from database.
 	public function delete(){
 		global $db;
-		//dbConnect();
+		//Tool::dbConnect();
 		$_table = $this->_table;
 		$_id = $this->_id;
 		
@@ -174,7 +174,7 @@ Class BaseObject {
 			return 1;
 		}catch(Exception $ex) {
 			// If connexion to database doesn't work, reconnects to database.
-			//dbConnect();
+			//Tool::dbConnect();
 			// Starts again the deleting function.
 			//$this->delete();
 			return 0;
