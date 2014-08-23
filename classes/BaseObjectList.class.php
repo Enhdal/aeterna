@@ -5,7 +5,6 @@ Class BaseObjectList {
     protected $myclass = '';
 	private $_res = null;
 	private $_count = null;
-	//private $_current = null;
 	private $query_innerjoin = '';
 	private $query_where = '';
 	private $query_orderby = '';
@@ -19,10 +18,10 @@ Class BaseObjectList {
 	/**
 	 * __construct
 	 * @param $t table in database
-	 * @param $innerjoin add a inner join after the table, the string must include INNER JOIN/LEFT JOIN/RIGHT JOIN
-	 * @param $where the where condition of the query, the string must not include the WHERE
-	 * @param $orderby the ORDER BY, the string must not include the ORDER BY but can have a DESC
-	 * @param $limit the LIMIT condition, the string must not include the LIMIT
+	 * @param $innerjoin add a inner join, it must include INNER JOIN/LEFT JOIN/RIGHT JOIN
+	 * @param $where the where condition, no need to write WHERE key word
+	 * @param $orderby the ORDER BY, no need to ORDER BY key word but can have a DESC
+	 * @param $limit the LIMIT condition, no need to write LIMIT key word
 	 * @param $alias the alias of the main table
 	 */
     public function __construct($t = '', $innerjoin = '', $where = '', $orderby = '', $limit = '', $alias = '') {
@@ -89,13 +88,14 @@ Class BaseObjectList {
 			Tool::dbConnect();
 			if(is_null($this->_res))
 				die('ERROR 20140717.01 - _res not initialized');
-		
+			//var_dump($this->query);
 			if($row = $this->_res->fetch(PDO::FETCH_ASSOC)) {
 				$c = $this->myclass;
 				$id = $row['id_' . $this->dbtable];
-				//echo '<pre>'.print_r($row, true).'</pre>';
+				
 				// Instantiate the class of object.
-				$obj = new $c($id, true, $row);
+				//$obj = new $c($id, true, $row);
+				$obj = Tool::getBaseObject($c, $id, $row);
 				//var_dump($obj);
 				$this->data[$this->_pos] = $obj;
 				$this->_pos++;
@@ -158,6 +158,7 @@ Class BaseObjectList {
 		$this->seek(0);
 		try{
 			$db->beginTransaction();
+			$db->setAttribute(PDO::ATTR_AUTOCOMMIT, FALSE);
 			while($obj = $this->getNext()){
 				$obj->update();
 			}
@@ -165,6 +166,7 @@ Class BaseObjectList {
 		} catch (Exception $ex) {
 			$db->rollBack();
 		}
+		$db->setAttribute(PDO::ATTR_AUTOCOMMIT, TRUE);
 	}
 	
 	public function deleteAll(){

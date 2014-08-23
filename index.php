@@ -28,12 +28,12 @@ include './admin/config.php';
 		<section id='main' class="mainSection">
 			<nav class="mainMenu"><?php include('menu.php'); ?></nav>
 			<article id="mainContent" class="mainArticle">
-				<?php if(isset($_GET['page'])) include($_GET['page'].'.php');?>
+				<?php if(isset($_GET['page'])) include($_GET['page'].'.php'); else include('news.php');?>
 				&nbsp;
 			</article>
-			<aside id="rightPanel" class="contextPanel">
+			<article id="rightPanel" class="contextPanel">
 				<?php include('chapter_panel.php');?>
-			</aside>
+			</article>
 			
 		</section>
 		<footer class="mainFooter"><?php include('menu_footer.php');?></footer>

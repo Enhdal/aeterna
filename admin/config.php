@@ -19,6 +19,13 @@
 		return $randstring;
 	}*/
 	
+	// Function to log in files.
+	function _log($value, $file = 'default_logs.log'){
+		file_put_contents($file, "=================== Log starts at ".date('Y-m-d H:i:s')."==================== \n", FILE_APPEND | LOCK_EX);
+		file_put_contents($file, print_r($value, true), FILE_APPEND | LOCK_EX);
+		file_put_contents($file, "=================== Log ends at ".date('Y-m-d H:i:s')."==================== \n", FILE_APPEND | LOCK_EX);
+	}
+	
 	$cfg = array();
 	$cache = array();
 	$error_code = array();
@@ -82,7 +89,6 @@
 			'obj_updated_time' => 'timestamp',
 			'title' => 'varchar',
 			'content' => 'text',
-			//'author' => 'int',
 			'validation_waiting' => 'boolean',
 			'published' => 'boolean',
 			'validated' => 'boolean',
@@ -100,6 +106,7 @@
 		)
 	);
 	
+	$GLOBALS['db'] = '';
 	$GLOBALS['cfg'] = $cfg;
 	$GLOBALS['cache'] = $cache;
 ?>

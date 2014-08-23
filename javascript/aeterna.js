@@ -33,9 +33,10 @@ function panelOverlay() {
 	
 	var $rp = $('#rightPanel');
 	var $op = $('#openPanel');
-	$rp.css('transition', '1s left,1s width,1s opacity');
 	if($rp.attr('x-open') == 1){
+		$rp.css('transition', '1s left,1s width,0.1s opacity');
 		$rp.css('opacity', '0');
+		$rp.css('width', '0px');
 		$rp.attr('x-open', '0');
 		$op.removeClass('ui-icon-carat-r');
 		$op.addClass('ui-icon-carat-l');
@@ -43,10 +44,12 @@ function panelOverlay() {
 		var rp_height = $rp.height();
 		var m_height = $('#mainContent').height();
 		
+		$rp.css('transition', '1s left,0.1s width,1s opacity');
 		if(m_height > rp_height){
 			$rp.css('height', $('#mainContent').height());
 		}
 		$rp.css('opacity', '1');
+		$rp.css('width', '250px');
 		$rp.attr('x-open', '1');
 		$op.removeClass('ui-icon-carat-l');
 		$op.addClass('ui-icon-carat-r');
