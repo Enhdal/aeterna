@@ -1,7 +1,11 @@
 <?php
 	session_start();
-	$id_author = $_SESSION['user_id'];
-	$books = new BaseObjectList('book', 'INNER JOIN link_user_object luo ON b.id_book = luo.obj_id AND luo.obj_table = "book"', 'luo.id_user = '.$id_author, '', '', 'b');
+	$id_author = (int)$_SESSION['user_id'];
+	$where = '';
+	if($id_author > 0)
+		$where = 'luo.id_user = '.$id_author;
+		
+	$books = new BaseObjectList('book', 'INNER JOIN link_user_object luo ON b.id_book = luo.obj_id AND luo.obj_table = "book"', $where, '', '', 'b');
 	while($book = $books->getNext()){
 		
 		echo $book->title.'<br />';

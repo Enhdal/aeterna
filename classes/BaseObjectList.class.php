@@ -61,7 +61,7 @@ Class BaseObjectList {
 			$answer = $db->query($query);
 			$this->_res = $answer;
 		}
-		//file_put_contents('BOL__construct.log', print_r($query, true));
+		//_log($query, 'BOL__construct.log');
 		//echo '<pre>'.print_r($query, true).'</pre>';
 		//echo '<pre>'.print_r($answer, true).'</pre>';
     }
@@ -107,8 +107,7 @@ Class BaseObjectList {
 				return false;
 			}
 		} else {
-			if((isset($this->data[$this->_pos]))){ //&& ($this->data[$this->_pos] > 0)){
-				//$this->_pos++;
+			if((isset($this->data[$this->_pos]))){
 				return $this->data[$this->_pos++];
 			} else {
 				return false;
@@ -121,7 +120,7 @@ Class BaseObjectList {
 	*/
 	public function seek($pos = 0) {
 		$this->_pos = $pos;
-		//$this->firstcall = false;
+		$this->firstcall = false;
 	}
 	
 	public function push($element){

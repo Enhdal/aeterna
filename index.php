@@ -24,7 +24,6 @@ include './admin/config.php';
 		<header class="mainHeader">
 			<a href="index.php"><img src="images/test_ban.png"></img></a>
 		</header>
-
 		<section id='main' class="mainSection">
 			<nav class="mainMenu"><?php include('menu.php'); ?></nav>
 			<article id="mainContent" class="mainArticle">
@@ -34,7 +33,6 @@ include './admin/config.php';
 			<article id="rightPanel" class="contextPanel">
 				<?php include('chapter_panel.php');?>
 			</article>
-			
 		</section>
 		<footer class="mainFooter"><?php include('menu_footer.php');?></footer>
 	</body>

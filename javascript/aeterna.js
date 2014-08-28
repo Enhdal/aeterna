@@ -272,6 +272,29 @@ $.fn.extend({
 				window.location = 'index.php';
 			}
 		});
+	},
+	
+	// Function on article's form to add or update it.
+	setArticle : function(id_article){
+		var $t = $(this);
+		var data = $t.getFormData();
+		var todo = '';
+		if(id_article > 0)
+			// If id_article is set and greater than 0,
+			// article already exists and has to be updated.
+			todo = 'update_article';
+		else
+			// If id_article equals 0, it's a new book to add to db.
+			todo = 'add_article';
+
+		$.ajax({
+			url : 'todo_ajax.php',
+			type : 'POST',
+			data : 'todo='+todo+'&data='+data,
+			success : function(result){
+				window.location = 'index.php';
+			}
+		});
 	}
 });
 

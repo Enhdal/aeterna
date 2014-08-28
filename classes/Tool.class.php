@@ -44,6 +44,22 @@ class Tool {
 			die('Error : ' . $e->getMessage());
 		}
 	}
+	
+	/**
+	* Create list of options for html element <select></select>
+	* @param	$table	Table to query.
+	* @param	$display_field	Field to use to display text on <option> element.
+	* @param	$value_field	Field to use as value for <option> element.
+	* @return	$options	String containing list of options for the <select> element.
+	*/
+	public function getSelectOption($table, $display_field, $value_field, $where = ''){
+		$obj = new BaseObjectList($table, '', $where);
+		$options = '';
+		while($o = $obj->getNext()){
+			$options .= '<option value="'.$o->$value_field.'">'.$o->$display_field.'</option>';
+		}
+		return $options;
+	}
 }
 
 ?>

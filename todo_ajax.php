@@ -154,6 +154,30 @@
 				// Save new data in database.
 				echo $book->update();
 				break;
+			case 'add_article' : 
+				// Create and add new object Article.
+				$title = $data['title'];
+				$content = $data['content'];
+				$id_author = $data['id_author'];
+				$newarticle = new BaseObject('article');
+				$newarticle->title = $title;
+				$newarticle->content = $content;
+				$newarticle->author = $id_author;
+				// Add new article object to database;
+				echo (int)($newarticle->add());
+				break;
+			case 'update_article' :
+				$title = $data['title'];
+				$content = $data['content'];
+				$id_article = $data['id_article'];
+				// Instanciate Article object from database.
+				$article = new Article($id_article);
+				// Change data.
+				$article->title = $title;
+				$article->content = $content;
+				// Save new data in database.
+				echo $article->update();
+				break;
 			case 'add_author' : 
 			
 				break;
