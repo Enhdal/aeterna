@@ -21,20 +21,25 @@ include './admin/config.php';
 	</head>
 
 	<body>
-		<header class="mainHeader">
-			<a href="index.php"><img src="images/test_ban.png"></img></a>
-		</header>
-		<section id='main' class="mainSection">
-			<nav class="mainMenu"><?php include('menu.php'); ?></nav>
-			<article id="mainContent" class="mainArticle">
-				<?php if(isset($_GET['page'])) include($_GET['page'].'.php'); else include('news.php');?>
-				&nbsp;
-			</article>
-			<article id="rightPanel" class="contextPanel">
-				<?php include('chapter_panel.php');?>
-			</article>
-		</section>
-		<footer class="mainFooter"><?php include('menu_footer.php');?></footer>
+		<div class="container">
+			<header class="mainHeader">
+				<a href="index.php"><img src="images/test_ban.png"></img></a>
+			</header>
+			<section class="mainMenu">
+				<?php include('menu.php'); ?>
+			</section>
+			<section id='main' class="mainSection">
+				
+				<article id="mainContent" class="mainArticle">
+					<?php if(isset($_GET['page'])) include($_GET['page'].'.php'); else include('news.php');?>
+					&nbsp;
+				</article>
+				<article id="rightPanel" class="contextPanel">
+					<?php include('chapter_panel.php');?>
+				</article>
+			</section>
+			<footer class="mainFooter"><?php include('menu_footer.php');?></footer>
+		</div>
 	</body>
 </html>
 <?php

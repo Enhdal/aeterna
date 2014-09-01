@@ -1,5 +1,26 @@
-﻿body {
-    font-size: 100%;
+﻿html, body{
+	width:100%;
+	height:100%;
+	font-size:12px;
+}
+
+p {
+	padding: 0;
+	margin: 0;
+}
+
+ul{
+	padding: 0;
+	margin: 0;
+}
+
+div.container{
+	min-width:480px;
+	max-width:1280px;
+	margin: 0 auto;
+}
+
+body {
     background:#0000;
 	position:relative;
 	display:block;
@@ -11,13 +32,6 @@
 
 article, aside {
 	display : inline-block;
-}
-
-.mainSection, .mainHeader, .mainFooter {
-	position:relative;
-	width: 80%;
-	margin-left: 10%;
-	z-index:1;
 }
 
 .mainFooter {
@@ -37,11 +51,7 @@ article, aside {
 
 .mainMenu {
 	position:relative;
-	float:left;
 	width:100%;
-	margin-top: -20px;
-	/*margin: 0 0 0 10%;*/
-	/*padding-bottom : 20px;*/
 }
 
 .contextPanel {
@@ -71,12 +81,11 @@ a{
 }
 
 .mainMenu ul{
-	/*position: relative;*/
-	display: table; 
+	/*position: relative;
 	margin: 0 auto;
+	width:100%;*/
+	text-align:center;
 	padding: 0;
-	width:100%;
-	/*z-index: 10;*/
 	background: rgb(200, 200, 200);
 	background: -webkit-linear-gradient(180deg, rgb(100, 100, 100), rgb(200, 200, 200)); 
 	background: -moz-linear-gradient(180deg, rgb(100, 100, 100), rgb(200, 200, 200)); 
@@ -91,32 +100,30 @@ a{
 }
 
 .mainMenu ul li{
-	width: 12.71em;
-	display: table-cell;
+	position:relative;
+	width: 150px;
 	text-align: center;
-	color: rgba(0, 0, 0, .7);
-	text-decoration: none;
-	padding: 0px 0px 0px 0px;
-	text-shadow: 0 1px 0 rgba(200, 200, 200, .4);
+	display: inline-block; 
+	/*color: rgba(0, 0, 0, .7);*/
+	list-style-type:none;
+	line-height:50px;
+	/*text-shadow: 0 1px 0 rgba(200, 200, 200, .4);
 	box-shadow: 0 1px 0 rgba(200, 200, 200, .7) inset,
 				0 -1px 0 hsl(250, 0%, 75%) inset,
 				0 -2px 0 hsl(250, 0%, 75%) inset,
 				0 -3px 0 hsl(250, 0%, 75%) inset,
 				0 -4px 0 hsl(250, 0%, 75%) inset,
-				0 -5px 0 hsl(250, 0%, 75%) inset;
+				0 -5px 0 hsl(250, 0%, 75%) inset;*/
 	transition: padding .3s, background .3s;
 	transition: all .3s .1s;
 }
 
-.mainMenu ul li:first-child {
-	border-radius: 8px 0 0 8px; 
+.mainMenu a{
+	display: inline-block; 
+	width:100%;
 }
 
-.mainMenu ul li:last-child {
-	border-radius: 0 8px 8px 0;
-}
-
-.mainMenu ul li.menu:hover,
+/*.mainMenu ul li.menu:hover,
 .mainMenu ul li.menu:focus{ 
 	background: rgba(200, 200, 200,.2);
 	box-shadow: 0 1px 0 rgba(200, 200, 200, .7) inset,
@@ -127,9 +134,9 @@ a{
 				0 -5px 0 hsl(250, 0%, 75%) inset;
 	padding: 0px 10px 0px 10px;
 	transition: all .3s 0s;
-}	
+}	*/
 
-.mainMenu ul li span::before{
+.mainMenu ul li a::before{
 	content: ''; 
 	position: absolute; 
 	left: 50%; 
@@ -141,8 +148,8 @@ a{
 	background: rgba(0, 0, 0, .5); 
 }
 
-.mainMenu ul li span:hover::before,
-.mainMenu ul li span:focus::before{ 
+.mainMenu ul li a:hover::before,
+.mainMenu ul li a:focus::before{ 
 	background: white; 
 	box-shadow: 0 0 2px white, 
 				0 -1px 0 rgba(0, 0, 0, .4);
@@ -154,21 +161,12 @@ li.menu a {
 }
 
 #menu_footer {
+
+}
+
+#menu_footer {
 	display:table;
 	border-radius: 8px;
-}
-
-#menu_footer li{
-	display:table-cell;
-	text-decoration: none;
-}
-
-#menu_footer li:first-child {
-	border-radius: 8px 0 0 8px; 
-}
-
-#menu_footer li:last-child {
-	border-radius: 0 8px 8px 0;
 }
 
 article.book_list{
