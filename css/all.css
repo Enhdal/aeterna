@@ -1,4 +1,9 @@
-﻿html, body{
+﻿* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body{
 	width:100%;
 	height:100%;
 	font-size:12px;
@@ -13,30 +18,29 @@ ul{
 	padding: 0;
 	margin: 0;
 }
-
+/*
 div.container{
 	min-width:480px;
-	max-width:1280px;
+	max-width:1024px;
 	margin: 0 auto;
-}
+}*/
 
 body {
     background:#0000;
 	position:relative;
-	display:block;
 }
 
 .closeButton {
 	float: right;
 }
 
-article, aside {
+/*article, aside {
 	display : inline-block;
-}
+}*/
 
+/*
 .mainFooter {
-	float:left;
-	bottom:0px;
+	height:30px;
 	border-radius: 8px;
 	background-color:rgb(200, 200, 200);
 }
@@ -45,20 +49,20 @@ article, aside {
 	max-width:100%;
 }
 
-.mainSection{
-	min-height: 100%;
-}
-
 .mainMenu {
 	position:relative;
 	width:100%;
+}
+*/
+.mainSection{
+	position: relative;
 }
 
 .contextPanel {
 	width: 250px;
 	position:absolute;
-	top:65px;
-	right:0px;
+	top: 0;
+	right: 0;
     -khtml-opacity:0;
     -moz-opacity : 0;
     -ms-filter: "alpha(opacity=0)";
@@ -71,6 +75,17 @@ article, aside {
 	z-index:10;
 }
 
+#closePanel{
+	float: right;
+	margin-top: 5px;
+	margin-right: 5px;
+	cursor: pointer;
+}
+
+.banner{
+	margin-top: 0;
+}
+
 #connection {
 	float : right;
 	margin-right : 5%;
@@ -79,11 +94,8 @@ article, aside {
 a{
     text-decoration: none;
 }
-
+/*
 .mainMenu ul{
-	/*position: relative;
-	margin: 0 auto;
-	width:100%;*/
 	text-align:center;
 	padding: 0;
 	background: rgb(200, 200, 200);
@@ -99,31 +111,34 @@ a{
 				0 20px 20px rgba(0, 0, 0, .15);
 }
 
-.mainMenu ul li{
+.mainMenu ul li:not(:last-child){
 	position:relative;
 	width: 150px;
 	text-align: center;
 	display: inline-block; 
-	/*color: rgba(0, 0, 0, .7);*/
 	list-style-type:none;
 	line-height:50px;
-	/*text-shadow: 0 1px 0 rgba(200, 200, 200, .4);
+	text-shadow: 0 1px 0 rgba(200, 200, 200, .4);
 	box-shadow: 0 1px 0 rgba(200, 200, 200, .7) inset,
 				0 -1px 0 hsl(250, 0%, 75%) inset,
 				0 -2px 0 hsl(250, 0%, 75%) inset,
 				0 -3px 0 hsl(250, 0%, 75%) inset,
 				0 -4px 0 hsl(250, 0%, 75%) inset,
-				0 -5px 0 hsl(250, 0%, 75%) inset;*/
+				0 -5px 0 hsl(250, 0%, 75%) inset;
 	transition: padding .3s, background .3s;
 	transition: all .3s .1s;
 }
 
+.mainMenu ul li:last-child{
+	list-style-type:none;
+	line-height:50px;
+}
 .mainMenu a{
 	display: inline-block; 
 	width:100%;
 }
 
-/*.mainMenu ul li.menu:hover,
+.mainMenu ul li.menu:hover,
 .mainMenu ul li.menu:focus{ 
 	background: rgba(200, 200, 200,.2);
 	box-shadow: 0 1px 0 rgba(200, 200, 200, .7) inset,
@@ -134,8 +149,8 @@ a{
 				0 -5px 0 hsl(250, 0%, 75%) inset;
 	padding: 0px 10px 0px 10px;
 	transition: all .3s 0s;
-}	*/
-
+}*/
+/*
 .mainMenu ul li a::before{
 	content: ''; 
 	position: absolute; 
@@ -154,25 +169,19 @@ a{
 	box-shadow: 0 0 2px white, 
 				0 -1px 0 rgba(0, 0, 0, .4);
 }
-
+*/
 li.menu a {
-	border-width:0;
 	color:black;
 }
 
 #menu_footer {
-
-}
-
-#menu_footer {
-	display:table;
+	margin-top: 10px;
 	border-radius: 8px;
 }
 
 article.book_list{
-	display:block;
 	padding-left:20px;
-	width:auto;
+	width:100%;
 }
 
 .mainArticle {
@@ -201,8 +210,17 @@ article.book_list{
 }
 
 .article{
-	width:50%;
-	margin : 0px auto 0px auto;
+	width:90%;
+	padding: 15px auto 0;
+}
+
+.article_header {
+	padding-top: 10px;
+}
+
+.article_header  h1{
+	text-align: center;
+	font-size: 2em;
 }
 
 .author_info {

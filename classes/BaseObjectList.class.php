@@ -128,6 +128,7 @@ Class BaseObjectList {
 			$this->firstcall = false;
 		$position = count($this->data);
 		$this->data[$position] = $element;
+		$this->_count = (int) $this->_count + 1;
 	}
 	
 	public function addAll(){

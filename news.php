@@ -1,32 +1,28 @@
-<header>
-	<h1 style="text-align:center;">Dernières actualités.</h1>
-	<hr />
+<header class="article_header">
+	<h1>Dernières actualités.</h1>
 </header> 
-<?php
-	$articles = new BaseObjectList('article', '', 'validated = 1 AND published = 1', 'obj_created_time DESC', '0, 5');
-	while($article = $articles->getNext()){
-?>
-		<article class="article">
-			<h3><?=$article->title;?></h3>
-			<div class="article_content">
-				<?=$article->content;?>
-			</div>
-			<div class="author_info">
-				<?php
-					$user = Tool::getBaseObject('User', $article->author);
-					
-					$tmp = explode(' ', $article->obj_created_time);
-					$date = explode('-', $tmp[0]);
-					$time = explode(':', $tmp[1]);
-					
-					echo 'Posté par '.$user->login.', le '.date('d/m/Y', mktime($time[0], $time[1], $time[2], $date[1], $date[2], $date[0]));
-				?>
-			</div>
-		</article>
-<?php
-	}
-?>
-
+<article class="article">
+	<h2>Titre news</h2>
+	<article class="article_content">
+		<p>
+			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.
+			Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.
+			Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.
+			Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.
+			Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.
+		</p>
+		<p>
+			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.
+			Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.
+			Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.
+			Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.
+			Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.
+		</p>
+	</article>
+	<aside class="author_info">
+		Posté le 02/09/2014 par Shiki.
+	</aside>
+</article>
 <footer>
 
 </footer>

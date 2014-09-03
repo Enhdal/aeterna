@@ -1,2 +1,2 @@
-﻿<button id="closePanel" class="ui-btn ui-corner-all ui-shadow ui-mini ui-btn-icon-notext ui-icon-delete closeButton" style="float:right;"></button>
+﻿<span id="closePanel" class="glyphicon glyphicon-remove-circle"></span>
 <?php include('login.php');?>

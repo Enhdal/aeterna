@@ -1,31 +1,11 @@
-<?php /*
-<div>
-	<select>
-		<?=Tool::getOption('book', 'title', 'id_book', $where);?>
-	</select>
-</div>
-*/?>
-<?php
-	$books = new BaseObjectList('book', 'INNER JOIN link_user_object luo ON b.id_book = luo.obj_id AND luo.obj_table = "book"', '', '', '', 'b');
-	while($book = $books->getNext()){
-?>
+
 <article class="book_list">
-		<span class="book_title"><?=$book->title;?></span>
-		<div>
-<?php		
-		//echo $book->title.'<br />';
-		
-		$id_book = $book->id_book;
-		$chapters = new BaseObjectList('chapter', 'INNER JOIN link_book_object lbo ON c.id_chapter = lbo.obj_id AND lbo.obj_table = "chapter"', 'lbo.id_book = '.$id_book, '', '', 'c');
-		while($chapter = $chapters->getNext()){
-?>
-			<span class="chapter_title"><?=$chapter->title;?></span>
-<?php
-			//echo $chapter->title.'<br />';
-		}
-?>
-	</div>
+	<h2 class="book_title"></h2>
+	<p>
+		Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.
+		Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.
+		Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.
+		Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.
+		Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.
+	</p>
 </article>
-<?php
-	}
-?>

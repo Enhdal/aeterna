@@ -38,8 +38,8 @@ function panelOverlay() {
 		$rp.css('opacity', '0');
 		$rp.css('width', '0px');
 		$rp.attr('x-open', '0');
-		$op.removeClass('ui-icon-carat-r');
-		$op.addClass('ui-icon-carat-l');
+		$op.removeClass('glyphicon-chevron-right');
+		$op.addClass('glyphicon-chevron-left');
 	} else {
 		var rp_height = $rp.height();
 		var m_height = $('#mainContent').height();
@@ -51,8 +51,8 @@ function panelOverlay() {
 		$rp.css('opacity', '1');
 		$rp.css('width', '250px');
 		$rp.attr('x-open', '1');
-		$op.removeClass('ui-icon-carat-l');
-		$op.addClass('ui-icon-carat-r');
+		$op.removeClass('glyphicon-chevron-left');
+		$op.addClass('glyphicon-chevron-right');
 	}
 	/*$rp.fadeToggle(
 		{
